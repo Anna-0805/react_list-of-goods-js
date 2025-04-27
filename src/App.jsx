@@ -29,15 +29,16 @@ export const App = () => {
       sorted.sort((a, b) => a.length - b.length);
     }
 
-    setGoods(isReversed ? sorted.reverse() : sorted);
+    setGoods(sorted);
     setSortType(type);
+    setIsReversed(false);
   };
 
   const reverseGoods = () => {
     const reversed = [...goods].reverse();
 
     setGoods(reversed);
-    setIsReversed(!isReversed);
+    setIsReversed(prev => !prev);
   };
 
   const resetGoods = () => {
