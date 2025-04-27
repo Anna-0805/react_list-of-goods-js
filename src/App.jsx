@@ -21,7 +21,7 @@ export const App = () => {
   const [isReversed, setIsReversed] = useState(false);
 
   const sortGoods = type => {
-    const sorted = [...goodsFromServer];
+    const sorted = [...goods];
 
     if (type === 'alphabet') {
       sorted.sort((a, b) => a.localeCompare(b));
@@ -29,9 +29,12 @@ export const App = () => {
       sorted.sort((a, b) => a.length - b.length);
     }
 
+    if (isReversed) {
+      sorted.reverse();
+    }
+
     setGoods(sorted);
     setSortType(type);
-    setIsReversed(false);
   };
 
   const reverseGoods = () => {
